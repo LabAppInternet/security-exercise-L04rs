@@ -1,12 +1,22 @@
 package cat.tecnocampus.securityjwt.api;
 
+import cat.tecnocampus.securityjwt.app.dto.NewUserLabDto;
+import cat.tecnocampus.securityjwt.app.UserLabService;
+import cat.tecnocampus.securityjwt.app.dto.UserLabDto;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
 
 @RestController
 public class APIController {
+
+    private final UserLabService userLabService;
+
+    public APIController(UserLabService userLabService) {
+        this.userLabService = userLabService;
+    }
 
     @GetMapping("/helloWorld")
     public String helloWorld() {
@@ -70,4 +80,8 @@ public class APIController {
     }
 
     // TODO 2 add a PostMapping to create a new user with a single role. The role must be ADMIN or USER or MODERATOR
+    @PostMapping("/register")
+    public UserLabDto registerUser(NewUserLabDto newUserLabDto) {
+        return userLabService.registerUser(newUserLabDto);
+    }
 }

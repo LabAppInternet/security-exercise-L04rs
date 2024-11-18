@@ -22,6 +22,7 @@ public class SecurityConfigurationAuthorization {
     private final JwtDecoder jwtDecoder;
     private static final String[] WHITE_LIST_URL = {
             "/login",
+            "/register",
             "/h2-console/**",
             "/webjars/**",
             "/v3/api-docs/**", //this is for swagger
@@ -52,6 +53,8 @@ public class SecurityConfigurationAuthorization {
                     auth.requestMatchers("/helloUser").access(hasScope("USER"));//.hasRole("USER");
                     auth.requestMatchers("/helloAdmin").access(hasScope("ADMIN"));
                     auth.requestMatchers("/helloUserAdmin").access(hasAnyScope("USER", "ADMIN"));
+                    auth.requestMatchers("/moderator/**").access(hasScope("MODERATOR"));
+                    auth.requestMatchers("moderator/*/**").access(hasAnyScope("MODERATOR", "ADMIN"));
                     auth.anyRequest().authenticated();
                 })
                 .sessionManagement(s -> s.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

@@ -29,3 +29,15 @@ content-type: application/json
     client.global.set("auth_token", response.headers.valueOf("Authorization"));
     client.log("token: " + response.headers.valueOf("Authorization"));
 %}
+
+
+###
+POST localhost:8080/register
+content-type: application/json
+
+{
+  "username": "user123",
+  "email": "newUser@mail.com",
+  "password": "password12345",
+  "role": "USER"
+}
