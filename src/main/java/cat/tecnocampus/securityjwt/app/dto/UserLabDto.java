@@ -1,11 +1,12 @@
 package cat.tecnocampus.securityjwt.app.dto;
 
-import cat.tecnocampus.securityjwt.domain.ERole;
 import cat.tecnocampus.securityjwt.domain.Role;
+import lombok.Data;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Data
 public class UserLabDto {
 
     private String username;

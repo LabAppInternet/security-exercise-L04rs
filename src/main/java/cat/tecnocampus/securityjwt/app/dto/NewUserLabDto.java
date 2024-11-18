@@ -1,13 +1,15 @@
 package cat.tecnocampus.securityjwt.app.dto;
 
 import cat.tecnocampus.securityjwt.domain.ERole;
+import lombok.Data;
 
+@Data
 public class NewUserLabDto {
 
-    private String username;
-    private String email;
-    private String password;
-    private ERole role;
+    String username;
+    String email;
+    String password;
+    ERole role;
 
     public NewUserLabDto(String username, String email, String password, ERole role) {
         this.username = username;

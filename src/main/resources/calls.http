@@ -31,7 +31,7 @@ content-type: application/json
 %}
 
 
-###
+###Register USER
 POST localhost:8080/register
 content-type: application/json
 
@@ -40,4 +40,26 @@ content-type: application/json
   "email": "newUser@mail.com",
   "password": "password12345",
   "role": "USER"
+}
+
+###Register MODERATOR
+POST localhost:8080/register
+content-type: application/json
+
+{
+  "username": "Moderator12345",
+  "email": "newModerator@mail.com",
+  "password": "password12345",
+  "role": "MODERATOR"
+}
+
+###Register ADMIN
+POST localhost:8080/register
+content-type: application/json
+
+{
+  "username": "Admin123",
+  "email": "newAdmin@mail.com",
+  "password": "password12345",
+  "role": "ADMIN"
 }
